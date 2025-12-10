@@ -61,7 +61,7 @@ export default function Home() {
             </h1>
             <LiquidCard className="text-lg md:text-xl leading-relaxed text-gray-200">
               <p>
-                "Desde que era niño, la tecnología ha sido mi vida y mi pasión. Recuerdo con entusiasmo cuando, siendo apenas un niño, realicé mi primer overclock y undervolt a un procesador Intel i3. Manipulé la BIOS para activar la virtualización y probé todo lo que estaba a mi alcance para hacer que mi humilde PC pudiera ejecutar emuladores. Ese proceso, lleno de retos y aprendizajes, dejó una huella profunda en mí y encendió una pasión que sigue viva hasta el día de hoy."
+                Desde que era niño, la tecnología ha sido mi vida y mi pasión. Recuerdo con entusiasmo cuando, siendo apenas un niño, realicé mi primer overclock y undervolt a un procesador Intel i3. Manipulé la BIOS para activar la virtualización y probé todo lo que estaba a mi alcance para hacer que mi humilde PC pudiera ejecutar emuladores. Ese proceso, lleno de retos y aprendizajes, dejó una huella profunda en mí y encendió una pasión que sigue viva hasta el día de hoy.
               </p>
             </LiquidCard>
           </motion.div>
