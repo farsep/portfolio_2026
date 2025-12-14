@@ -26,6 +26,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center p-8 md:p-24 relative z-10">
+
       <div className="max-w-5xl w-full flex flex-col gap-16">
 
         {/* Hero Section */}
