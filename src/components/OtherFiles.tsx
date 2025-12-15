@@ -4,14 +4,7 @@ import { FileText, Image as ImageIcon, Award, Briefcase } from "lucide-react";
 import LiquidCard from "./LiquidCard";
 
 const fileGroups = [
-    {
-        category: "Certificaciones Formales",
-        items: [
-            { name: "Mercado Libre - Globant Certified Tech Developer", path: "/portfolio_files/Digital House/Logo Certified Tech Developer.png", type: "image" },
-            { name: "Certificado Oracle One - Backend", path: "/portfolio_files/Arnie Farid Espinoza Pachas - Programa Oracle One.pdf", type: "pdf" },
-            { name: "Programa de Estudios - Digital House", path: "/portfolio_files/Digital House/Programa de Estudios Digital House.jpg", type: "image" },
-        ]
-    },
+
     {
         category: "Banana Rancia (Experiencia)",
         items: [
