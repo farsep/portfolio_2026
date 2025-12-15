@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google"; // Use underscores to match recent lint error if needed, but standard is Geist_Mono. Wait, previous file had Geist_Mono.
 import "./globals.css";
 import Background from "@/components/Background";
 import CursorGoo from "@/components/CursorGoo";
+import NavBar from "@/components/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <Background />
         <CursorGoo />
+        <NavBar />
         {children}
       </body>
     </html>
