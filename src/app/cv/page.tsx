@@ -8,6 +8,7 @@ import PdfViewer from "@/components/PdfViewer";
 import OtherFiles from "@/components/OtherFiles";
 import Background from "@/components/Background";
 import LiquidCard from "@/components/LiquidCard";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export default function CVPage() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -163,7 +164,7 @@ export default function CVPage() {
                             />
                             {/* Overlay for viewing/downloading */}
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
-                                 onClick={() => setSelectedImage("/portfolio_files/Digital House/Programa de Estudios Digital House.jpg")}>
+                                onClick={() => setSelectedImage("/portfolio_files/Digital House/Programa de Estudios Digital House.jpg")}>
                                 <button
                                     className="px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full text-white font-bold transition-colors"
                                 >
@@ -173,6 +174,83 @@ export default function CVPage() {
                         </div>
                     </div>
                 </div>
+            </motion.section>
+
+            {/* MindForgeX Section - Redesigned */}
+            <motion.section
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative"
+            >
+                {/* Decorative Background Elements */}
+                <div className="absolute -top-20 -left-20 w-96 h-96 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+                <LiquidCard className="p-8 md:p-12 border-sky-500/30 shadow-sky-500/5 hover:border-sky-500/50 transition-all duration-500">
+                    <div className="space-y-12">
+                        {/* Header */}
+                        <div className="text-center space-y-4">
+                            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-blue-500 to-purple-600">
+                                MindForgeX
+                            </h2>
+                            <p className="text-xl text-sky-200/80 font-medium tracking-wide">
+                                Concurso Voces por el Cambio - Credicorp
+                            </p>
+                        </div>
+
+                        {/* Main Content: Video & Story */}
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            {/* Video Container with Cinema Glow */}
+                            <div className="relative group w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+                                <div className="absolute inset-0 bg-sky-500/20 blur-xl group-hover:blur-2xl transition-all opacity-50 duration-500" />
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src="https://www.youtube.com/embed/baSRhPHHFlQ?si=6sDwLlbNKOOQJCKm"
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen
+                                    className="relative z-10 w-full h-full"
+                                ></iframe>
+                            </div>
+
+                            {/* Narrative Text */}
+                            <div className="space-y-6 text-lg leading-relaxed text-gray-300">
+                                <p>
+                                    Formé parte del concurso <strong className="text-sky-300">Voces por el Cambio de Credicorp</strong> junto con mis amigos Leandro y Leonardo. El concurso ofrecía acceso a mentorías, aceleradoras de capital y un premio de <strong>$15,000</strong>, además de la oportunidad de asistir al <strong className="text-purple-300">One Young World Summit</strong>.
+                                </p>
+                                <p>
+                                    Para potenciar nuestra visión, contacté a <strong className="text-yellow-300">Raúl Alcántara</strong>, campeón de la IMO y egresado del MIT, quien se unió al equipo aportando su experiencia de clase mundial.
+                                </p>
+                                <p>
+                                    Así nació <strong>MindForgeX</strong>, una plataforma educativa de lecciones interactivas. Con mi experiencia en multimedia, desarrollé el <strong>video demo</strong> (visible a la izquierda) para consolidar nuestra propuesta. Aunque el proyecto fue pausado, las conexiones y aprendizajes quedaron como base sólida para mi futuro.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Gallery Section */}
+                        <div className="space-y-6 pt-8 border-t border-white/5">
+                            <div className="flex items-center gap-4">
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+                                <span className="text-sm font-bold text-sky-400/80 uppercase tracking-widest">Galería del Equipo</span>
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+                            </div>
+
+                            <ImageCarousel
+                                className="rounded-[2.5rem]"
+                                cardClassName="rounded-[2.5rem]"
+                                imageClassName="rounded-[1.5rem]"
+                                images={[
+                                    { path: "/portfolio_files/mindForgeX/IMG_20231027_143757.jpg", alt: "MindForgeX Development", title: "Leandro, Leonardo y yo - Equipo Inicial" },
+                                    { path: "/portfolio_files/mindForgeX/IMG_20231027_130730.jpg", alt: "MindForgeX Team Meeting", title: "Junto a Raúl Alcántara, compatriota del MIT y ganador de la IMO" },
+                                    { path: "/portfolio_files/mindForgeX/IMG_20231027_134316.jpg", alt: "MindForgeX Planning", title: "Sesión de Planificación y Estrategia" },
+                                ]} />
+                        </div>
+                    </div>
+                </LiquidCard>
             </motion.section>
 
             {/* Other Files */}
