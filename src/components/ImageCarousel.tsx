@@ -30,17 +30,17 @@ export default function ImageCarousel({ images, cardClassName, imageClassName, c
                         onClick={() => setSelectedImage(image.path)}
                     >
                         <div className={cn(
-                            "flex flex-col gap-3 bg-white/5 rounded-2xl border border-white/10 p-[3%] shadow-lg hover:bg-white/10 transition-colors cursor-pointer group",
+                            "flex flex-col gap-3 bg-white/5 rounded-2xl border border-white/10 p-[3%] shadow-lg hover:bg-white/10 transition-colors cursor-pointer",
                             cardClassName
                         )}>
-                            <div className={cn("relative flex-1 overflow-hidden rounded-xl bg-black/20 aspect-video", imageClassName)}>
+                            <div className={cn("relative flex-1 overflow-hidden rounded-xl bg-black/20 aspect-video group/image", imageClassName)}>
                                 <img
                                     src={image.path}
                                     alt={image.alt}
                                     className="w-full h-full object-cover"
                                     loading="lazy"
                                 />
-                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity flex items-center justify-center">
                                     <span className="text-white text-sm font-bold bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">Ver Imagen</span>
                                 </div>
                             </div>

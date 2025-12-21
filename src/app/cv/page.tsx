@@ -253,6 +253,132 @@ export default function CVPage() {
                 </LiquidCard>
             </motion.section>
 
+            {/* Professional Experience Section */}
+            <motion.section
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="space-y-16"
+            >
+                <div className="flex items-center gap-4 mb-8">
+                    <div className="h-1 w-12 bg-emerald-500 rounded-full" />
+                    <h2 className="text-3xl font-bold text-white">Experiencia Profesional y Pasantías</h2>
+                </div>
+
+                {/* Grid for Samsung & GCM */}
+                <div className="grid md:grid-cols-2 gap-8">
+                    {/* Samsung User Blog */}
+                    <LiquidCard className="p-8 space-y-6 border-blue-500/20 shadow-blue-500/5 hover:border-blue-500/40 rounded-[2.5rem] flex flex-col">
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-blue-400">Samsung User Blog</h3>
+                            <p className="text-sm font-semibold text-blue-200/60 uppercase tracking-widest">Redactor SEO • Blog Tecnológico</p>
+                        </div>
+
+                        <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group">
+                            <img
+                                src="/portfolio_files/Samsung_User_ScreenShot.png"
+                                alt="Samsung User Blog"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors duration-500" />
+                        </div>
+
+                        <div className="text-gray-300 leading-relaxed space-y-4 flex-1">
+                            <p>
+                                Durante la etapa final de mi educación escolar, formé parte del equipo de <strong>SAMSUNGUSER</strong>, trabajando como <strong>redactor SEO</strong>. Mi labor consistió en crear contenido optimizado para motores de búsqueda, mejorando la visibilidad del blog en Google.
+                            </p>
+                            <p className="text-sm text-gray-400">
+                                Esta experiencia me permitió desarrollar habilidades clave en redacción SEO y posicionamiento web, entendiendo la importancia de la colaboración global en un entorno digital.
+                            </p>
+                        </div>
+                    </LiquidCard>
+
+                    {/* Global Commerce Media */}
+                    <LiquidCard className="p-8 space-y-6 border-emerald-500/20 shadow-emerald-500/5 hover:border-emerald-500/40 rounded-[2.5rem] flex flex-col">
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-emerald-400">Global Commerce Media</h3>
+                            <p className="text-sm font-semibold text-emerald-200/60 uppercase tracking-widest">Marketing Internship • Remoto</p>
+                        </div>
+
+                        <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group">
+                            <img
+                                src="/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas_page-0001.jpg"
+                                alt="Global Commerce Media Internship"
+                                className="w-full h-full object-cover top-0"
+                            />
+                        </div>
+
+                        <div className="text-gray-300 leading-relaxed space-y-4 flex-1">
+                            <p>
+                                Realicé una pasantía remota de 3 meses en esta agencia alemana de marketing digital. Trabajé 20 horas semanales adquiriendo habilidades en <strong>diseño web (WordPress), SEO OnPage, y gestión de redes sociales</strong>.
+                            </p>
+                            <ul className="list-disc list-inside text-sm text-gray-400 space-y-1 ml-2">
+                                <li>Estudio e investigación de mercado.</li>
+                                <li>Creación de contenido optimizado.</li>
+                                <li>Trabajo autónomo en entorno internacional.</li>
+                            </ul>
+                        </div>
+                    </LiquidCard>
+                </div>
+
+                {/* Banana Rancia Section */}
+                <LiquidCard className="p-8 md:p-12 border-orange-500/20 shadow-orange-500/5 hover:border-orange-500/40 rounded-[2.5rem] space-y-12">
+                    <div className="space-y-12">
+                        {/* Top: PDF & Content Grid */}
+                        <div className="grid lg:grid-cols-2 gap-12 items-start">
+                            {/* PDF Recommendation (Left) */}
+                            <div className="space-y-2 order-2 lg:order-1">
+                                <span className="text-xs font-bold text-orange-400/80 uppercase tracking-widest block text-center lg:text-left">Carta de Recomendación</span>
+                                <div className="h-64 w-full">
+                                    <PdfViewer
+                                        src="/portfolio_files/Banana/Carta_de_Recomendacion_Dami_Ruiz.pdf"
+                                        title="Carta de Recomendación"
+                                        className="w-full h-full aspect-auto rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Text Content (Right) */}
+                            <div className="space-y-6 order-1 lg:order-2">
+                                <div className="space-y-2">
+                                    <h3 className="text-3xl font-bold text-orange-400">Banana Rancia</h3>
+                                    <p className="text-lg text-orange-200/60 font-medium">Editor de Video & Estrategia de Contenido</p>
+                                </div>
+
+                                <div className="space-y-4 text-gray-300 leading-relaxed">
+                                    <p>
+                                        Trabajé como Editor de Video para <strong>Damian Ruiz</strong>, reconocido creador de contenido (Banana Rancia, +1M suscriptores) y empresario. Mi rol abarcó la <strong>edición y producción de videos de alta calidad</strong>, diseño de narrativas visuales y la gestión integral de un canal secundario.
+                                    </p>
+                                    <p>
+                                        Implementé efectos, transiciones y gráficos profesionales para reforzar la identidad del canal y aumentar el engagement de la audiencia.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bottom: Carousel */}
+                        <div className="space-y-4 pt-8 border-t border-white/5">
+                            <div className="flex items-center gap-4">
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+                                <span className="text-xs font-bold text-orange-400/80 uppercase tracking-widest">Galería & Evidencia</span>
+                                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent" />
+                            </div>
+                            <ImageCarousel
+                                className="rounded-[2rem] bg-black/20"
+                                cardClassName="rounded-[1.5rem]"
+                                imageClassName="rounded-[1rem]"
+                                images={[
+                                    { path: "/portfolio_files/Banana/Banan Rancia +1 Millon.png", alt: "Canal con 1 Millón", title: "Canal de Damian con +1 millón de suscriptores" },
+                                    { path: "/portfolio_files/Banana/Charla TEDx Banana Rancia.png", alt: "Damian TEDx", title: "Damian - TEDx" },
+                                    { path: "/portfolio_files/Banana/damian sosteniendo mi foto.jpg", alt: "Damian con mi foto", title: "Damian llevando mi presencia a través de una fotografía en Buenos Aires" },
+                                    { path: "/portfolio_files/Banana/Eliminacion del canal_Acuerdo Interno.png", alt: "Gestión de Canal", title: "El Canal que fue Administrado y Eliminado por mí por Acuerdo Interno" },
+                                ]}
+                            />
+                        </div>
+                    </div>
+                </LiquidCard>
+            </motion.section>
+
             {/* Other Files */}
             <motion.section
                 initial={{ opacity: 0 }}
