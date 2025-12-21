@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, Mic, BookOpen, Users, Globe, Video } from "lucide-react";
 import DiplomaCarousel from "@/components/DiplomaCarousel";
 import PdfViewer from "@/components/PdfViewer";
 import OtherFiles from "@/components/OtherFiles";
@@ -379,18 +379,180 @@ export default function CVPage() {
                 </LiquidCard>
             </motion.section>
 
-            {/* Other Files */}
+
+
+            {/* Self-Taught Extras Section - Bento Grid */}
             <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="space-y-8"
+                className="space-y-16"
             >
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="h-1 w-12 bg-purple-500 rounded-full" />
-                    <h2 className="text-3xl font-bold text-white">Certificaciones y Documentos</h2>
+                    <div className="h-1 w-12 bg-pink-500 rounded-full" />
+                    <h2 className="text-3xl font-bold text-white">Extras como Autodidacta</h2>
                 </div>
-                <OtherFiles />
+
+                {/* Optimized Distribution Grid (30% - 30% - 40%) */}
+                <div className="grid grid-cols-1 md:grid-cols-10 gap-8 pb-12">
+
+                    {/* 1. Phonetics (Left - Span 3 - ~30%) */}
+                    <div className="md:col-span-3">
+                        <LiquidCard className="h-full p-0 border-pink-500/20 shadow-pink-500/5 hover:border-pink-500/40 rounded-[2rem] flex flex-col overflow-hidden bg-white/5">
+                            <div className="w-full aspect-[9/16] bg-black relative">
+                                <video
+                                    controls
+                                    className="w-full h-full object-contain"
+                                    preload="metadata"
+                                >
+                                    <source src="/portfolio_files/Extras/Usando Conocimiento en Multimedia para aprender Fonetica.mp4" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+
+                            <div className="p-6 flex flex-col gap-3 border-t border-white/5 bg-gradient-to-b from-white/5 to-transparent flex-1">
+                                <div className="flex items-center gap-3 text-pink-400">
+                                    <Mic className="w-6 h-6" />
+                                    <span className="text-sm font-bold uppercase tracking-widest">Phonetics</span>
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-100 leading-tight">English Phonetics</h3>
+                                <p className="text-gray-300 text-base leading-relaxed">
+                                    Using My Multimedia Knowledge to Learn English Phonetics.
+                                </p>
+                                <p className="text-3xl font-serif text-pink-200/90 tracking-wide mt-auto pt-4">
+                                    /əˈplaɪɪŋ ˈnɒlɪdʒ/
+                                </p>
+                            </div>
+                        </LiquidCard>
+                    </div>
+
+                    {/* 2. Math & Free4Talk (Middle - Span 3 - ~30%) */}
+                    <div className="md:col-span-3 flex flex-col gap-8">
+
+                        {/* Math (Top) */}
+                        <LiquidCard className="p-0 border-indigo-500/20 shadow-indigo-500/5 hover:border-indigo-500/40 rounded-[2rem] flex flex-col overflow-hidden bg-white/5">
+                            <div className="w-full aspect-[4/3] bg-black/20 relative cursor-zoom-in"
+                                onClick={() => setSelectedImage("/portfolio_files/Extras/Libro Favorito de Matematicas.jpg")}>
+                                <img
+                                    src="/portfolio_files/Extras/Libro Favorito de Matematicas.jpg"
+                                    alt="Portada Libro Matemáticas"
+                                    className="w-full h-full object-contain bg-indigo-950/20"
+                                />
+                            </div>
+
+                            <div className="p-6 flex flex-col gap-4 border-t border-white/5">
+                                <div className="space-y-1">
+                                    <div className="flex items-center gap-3 text-indigo-400">
+                                        <BookOpen className="w-6 h-6" />
+                                        <span className="text-sm font-bold uppercase tracking-widest">Mathematics</span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-indigo-100">CONAMAT</h3>
+                                </div>
+                                <p className="text-gray-200 text-base leading-relaxed">
+                                    Recomendado por <strong>Alan Valdía</strong> (CERN). Una obra que une la historia con la demostración rigurosa.
+                                </p>
+                            </div>
+                        </LiquidCard>
+
+                        {/* Free4Talk (Bottom - Now Bigger) */}
+                        <LiquidCard className="flex-1 p-6 border-cyan-500/20 shadow-cyan-500/5 hover:border-cyan-500/40 rounded-[2rem] flex flex-col justify-between gap-6 group bg-white/5">
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-2 text-cyan-400">
+                                    <Users className="w-6 h-6" />
+                                    <span className="text-sm font-bold uppercase tracking-widest">Community</span>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <h4 className="text-2xl font-bold text-gray-100">Free4Talk</h4>
+                                    <p className="text-gray-200 text-base leading-relaxed">
+                                        Mi plataforma principal para inmersión lingüística en tiempo real con nativos de todo el mundo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="w-full flex justify-center pb-2">
+                                <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-cyan-500/20 shadow-lg shadow-cyan-500/10 group-hover:scale-105 transition-transform duration-500">
+                                    <img
+                                        src="https://cdn.buymeacoffee.com/uploads/profile_pictures/2022/06/OXavjSVXhT3JTlag.svg@300w_0e.webp"
+                                        alt="Free4Talk"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </LiquidCard>
+
+                    </div>
+
+                    {/* 3. Russian & SAT (Right - Span 4 - ~40%) */}
+                    <div className="md:col-span-4 flex flex-col gap-8 h-full">
+
+                        {/* Russian (Top - Wider & Taller) */}
+                        <LiquidCard className="p-0 border-red-500/20 shadow-red-500/5 hover:border-red-500/40 rounded-[2rem] flex flex-col overflow-hidden bg-white/5 flex-1">
+                            <div className="p-6 pb-2 flex items-center justify-between text-red-400">
+                                <div className="flex items-center gap-3">
+                                    <Globe className="w-6 h-6" />
+                                    <span className="text-sm font-bold uppercase tracking-widest">Russian</span>
+                                </div>
+                                <span className="text-xs px-3 py-1 bg-red-400/10 rounded-full border border-red-400/20 font-bold">A1</span>
+                            </div>
+
+                            <div className="px-6 pb-4">
+                                <h3 className="text-xl font-bold text-red-100">Crash Course in Russian</h3>
+                            </div>
+
+                            {/* Flexible height container for PDF with padding - Forced Full Height */}
+                            <div className="flex-1 w-full relative bg-black/20 border-t border-white/10 min-h-[500px]">
+                                <div className="absolute inset-4 rounded-xl overflow-hidden shadow-sm border border-white/5 bg-black/40">
+                                    <object
+                                        data="/portfolio_files/Extras/АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.pdf#toolbar=0&navpanes=0&view=FitH"
+                                        type="application/pdf"
+                                        className="w-full h-full"
+                                    >
+                                        <div className="flex flex-col items-center justify-center h-full p-6 text-center text-gray-400 bg-white/5">
+                                            <p className="mb-2 text-sm">Unable to display PDF.</p>
+                                            <a
+                                                href="/portfolio_files/Extras/АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs rounded-full font-bold transition-colors border border-red-500/20"
+                                            >
+                                                Download PDF
+                                            </a>
+                                        </div>
+                                    </object>
+                                </div>
+                            </div>
+                        </LiquidCard>
+
+                        {/* SAT Bootcamp (Bottom - Wider) */}
+                        <LiquidCard className="p-0 border-yellow-500/20 shadow-yellow-500/5 hover:border-yellow-500/40 rounded-[2rem] overflow-hidden group cursor-pointer bg-white/5"
+                            onClick={() => setSelectedImage("/portfolio_files/Extras/FARID SAT BOOTCAMP.jpg")}>
+                            <div className="grid grid-cols-2 h-full min-h-[180px]">
+                                <div className="relative h-full">
+                                    <img
+                                        src="/portfolio_files/Extras/FARID SAT BOOTCAMP.jpg"
+                                        alt="SAT Bootcamp"
+                                        className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                                    />
+                                    <div className="absolute inset-0 bg-yellow-500/10 mix-blend-overlay" />
+                                </div>
+                                <div className="p-6 flex flex-col justify-center">
+                                    <div className="flex items-center gap-2 text-yellow-400 mb-3">
+                                        <Video className="w-5 h-5" />
+                                        <span className="text-sm font-bold uppercase tracking-widest">SAT Prep</span>
+                                    </div>
+                                    <h4 className="text-xl font-bold text-yellow-100 leading-tight mb-2">Math Bootcamp</h4>
+                                    <p className="text-gray-400 text-xs uppercase tracking-wider font-bold mb-2">Schoolhouse.world</p>
+                                    <p className="text-gray-200 text-sm leading-relaxed">
+                                        Hosting weekly sessions to help students master SAT Mathematics.
+                                    </p>
+                                </div>
+                            </div>
+                        </LiquidCard>
+
+                    </div>
+
+                </div>
             </motion.section>
 
             <Background />
