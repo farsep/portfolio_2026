@@ -21,7 +21,7 @@ export default function LiquidCard({ children, className, ...props }: LiquidCard
             )}
             {...props}
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative z-10 h-full">{children}</div>
         </motion.div>
     );

@@ -209,7 +209,7 @@ export default function CVPage() {
                 <div className="absolute -top-20 -left-20 w-96 h-96 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-                <LiquidCard className="p-8 md:p-12 border-sky-500/30 shadow-sky-500/5 hover:border-sky-500/50 transition-all duration-500">
+                <LiquidCard className="p-8 md:p-12 border-sky-500/30 shadow-sky-500/5 hover:border-sky-500/50 transition-all duration-500 backdrop-blur-[2px]">
                     <div className="space-y-12">
                         {/* Header */}
                         <div className="text-center space-y-4">
@@ -240,7 +240,7 @@ export default function CVPage() {
                             </div>
 
                             {/* Narrative Text */}
-                            <div className="space-y-6 text-lg leading-relaxed text-gray-300">
+                            <div className="space-y-6 text-lg leading-relaxed text-gray-200">
                                 <p>
                                     Formé parte del concurso <strong className="text-sky-300">Voces por el Cambio de Credicorp</strong> junto con mis amigos Leandro y Leonardo. El concurso ofrecía acceso a mentorías, aceleradoras de capital y un premio de <strong>$15,000</strong>, además de la oportunidad de asistir al <strong className="text-purple-300">One Young World Summit</strong>.
                                 </p>
@@ -265,6 +265,7 @@ export default function CVPage() {
                                 className="rounded-[2.5rem]"
                                 cardClassName="rounded-[2.5rem]"
                                 imageClassName="rounded-[1.5rem]"
+                                onImageClick={setSelectedImage}
                                 images={[
                                     { path: "/portfolio_files/mindForgeX/IMG_20231027_143757.jpg", alt: "MindForgeX Development", title: "Leandro, Leonardo y yo - Equipo Inicial" },
                                     { path: "/portfolio_files/mindForgeX/IMG_20231027_130730.jpg", alt: "MindForgeX Team Meeting", title: "Junto a Raúl Alcántara, compatriota del MIT y ganador de la IMO" },
@@ -290,63 +291,67 @@ export default function CVPage() {
                 {/* Grid for Samsung & GCM */}
                 <div className="grid md:grid-cols-2 gap-8">
                     {/* Samsung User Blog */}
-                    <LiquidCard className="p-8 space-y-6 border-blue-500/20 shadow-blue-500/5 hover:border-blue-500/40 rounded-[2.5rem] flex flex-col">
-                        <div className="space-y-2">
-                            <h3 className="text-2xl font-bold text-blue-400">Samsung User Blog</h3>
-                            <p className="text-sm font-semibold text-blue-200/60 uppercase tracking-widest">Redactor SEO • Blog Tecnológico</p>
-                        </div>
+                    <LiquidCard className="p-8 border-blue-500/20 shadow-blue-500/5 hover:border-blue-500/40 rounded-[2.5rem]">
+                        <div className="flex flex-col gap-10 h-full">
+                            <div className="space-y-2">
+                                <h3 className="text-2xl font-bold text-blue-400">Samsung User Blog</h3>
+                                <p className="text-sm font-semibold text-blue-200/60 uppercase tracking-widest">Redactor SEO • Blog Tecnológico</p>
+                            </div>
 
-                        <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group">
-                            <img
-                                src="/portfolio_files/Samsung_User_ScreenShot.png"
-                                alt="Samsung User Blog"
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors duration-500" />
-                        </div>
+                            <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group">
+                                <img
+                                    src="/portfolio_files/Samsung_User_ScreenShot.png"
+                                    alt="Samsung User Blog"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-blue-500/10 group-hover:bg-transparent transition-colors duration-500" />
+                            </div>
 
-                        <div className="text-gray-300 leading-relaxed space-y-4 flex-1">
-                            <p>
-                                Durante la etapa final de mi educación escolar, formé parte del equipo de <strong>SAMSUNGUSER</strong>, trabajando como <strong>redactor SEO</strong>. Mi labor consistió en crear contenido optimizado para motores de búsqueda, mejorando la visibilidad del blog en Google.
-                            </p>
-                            <p className="text-sm text-gray-400">
-                                Esta experiencia me permitió desarrollar habilidades clave en redacción SEO y posicionamiento web, entendiendo la importancia de la colaboración global en un entorno digital.
-                            </p>
+                            <div className="text-gray-200 leading-relaxed space-y-4 flex-1">
+                                <p>
+                                    Durante la etapa final de mi educación escolar, formé parte del equipo de <strong>SAMSUNGUSER</strong>, trabajando como <strong>redactor SEO</strong>. Mi labor consistió en crear contenido optimizado para motores de búsqueda, mejorando la visibilidad del blog en Google.
+                                </p>
+                                <p className="text-sm text-gray-400">
+                                    Esta experiencia me permitió desarrollar habilidades clave en redacción SEO y posicionamiento web, entendiendo la importancia de la colaboración global en un entorno digital.
+                                </p>
+                            </div>
                         </div>
                     </LiquidCard>
 
                     {/* Global Commerce Media */}
-                    <LiquidCard className="p-8 space-y-6 border-emerald-500/20 shadow-emerald-500/5 hover:border-emerald-500/40 rounded-[2.5rem] flex flex-col">
-                        <div className="space-y-2">
-                            <h3 className="text-2xl font-bold text-emerald-400">Global Commerce Media</h3>
-                            <p className="text-sm font-semibold text-emerald-200/60 uppercase tracking-widest">Marketing Internship • Remoto</p>
-                        </div>
-
-                        <div
-                            className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group/image cursor-pointer shadow-lg shadow-emerald-500/10"
-                            onClick={() => setSelectedPdf("/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas.pdf")}
-                        >
-                            <img
-                                src="/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas_page-0001.jpg"
-                                alt="Global Commerce Media Internship"
-                                className="w-full h-full object-cover object-top"
-                            />
-                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                                <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
-                                    Click para abrir
-                                </span>
+                    <LiquidCard className="p-8 border-emerald-500/20 shadow-emerald-500/5 hover:border-emerald-500/40 rounded-[2.5rem]">
+                        <div className="flex flex-col gap-10 h-full">
+                            <div className="space-y-2">
+                                <h3 className="text-2xl font-bold text-emerald-400">Global Commerce Media</h3>
+                                <p className="text-sm font-semibold text-emerald-200/60 uppercase tracking-widest">Marketing Internship • Remoto</p>
                             </div>
-                        </div>
 
-                        <div className="text-gray-300 leading-relaxed space-y-4 flex-1">
-                            <p>
-                                Realicé una pasantía remota de 3 meses en esta agencia alemana de marketing digital. Trabajé 20 horas semanales adquiriendo habilidades en <strong>diseño web (WordPress), SEO OnPage, y gestión de redes sociales</strong>.
-                            </p>
-                            <ul className="list-disc list-inside text-sm text-gray-400 space-y-1 ml-2">
-                                <li>Estudio e investigación de mercado.</li>
-                                <li>Creación de contenido optimizado.</li>
-                                <li>Trabajo autónomo en entorno internacional.</li>
-                            </ul>
+                            <div
+                                className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group/image cursor-pointer shadow-lg shadow-emerald-500/10"
+                                onClick={() => setSelectedPdf("/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas.pdf")}
+                            >
+                                <img
+                                    src="/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas_page-0001.jpg"
+                                    alt="Global Commerce Media Internship"
+                                    className="w-full h-full object-cover object-top"
+                                />
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                    <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                        Click para abrir
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="text-gray-200 leading-relaxed space-y-4 flex-1">
+                                <p>
+                                    Realicé una pasantía remota de 3 meses en esta agencia alemana de marketing digital. Trabajé 20 horas semanales adquiriendo habilidades en <strong>diseño web (WordPress), SEO OnPage, y gestión de redes sociales</strong>.
+                                </p>
+                                <ul className="list-disc list-inside text-sm text-gray-400 space-y-1 ml-2">
+                                    <li>Estudio e investigación de mercado.</li>
+                                    <li>Creación de contenido optimizado.</li>
+                                    <li>Trabajo autónomo en entorno internacional.</li>
+                                </ul>
+                            </div>
                         </div>
                     </LiquidCard>
                 </div>
@@ -382,7 +387,7 @@ export default function CVPage() {
                                     <p className="text-lg text-orange-200/60 font-medium">Editor de Video & Estrategia de Contenido</p>
                                 </div>
 
-                                <div className="space-y-4 text-gray-300 leading-relaxed">
+                                <div className="space-y-4 text-gray-200 leading-relaxed">
                                     <p>
                                         Trabajé como Editor de Video para <strong>Damian Ruiz</strong>, reconocido creador de contenido (Banana Rancia, +1M suscriptores) y empresario. Mi rol abarcó la <strong>edición y producción de videos de alta calidad</strong>, diseño de narrativas visuales y la gestión integral de un canal secundario.
                                     </p>
@@ -404,6 +409,7 @@ export default function CVPage() {
                                 className="rounded-[2rem] bg-black/20"
                                 cardClassName="rounded-[1.5rem]"
                                 imageClassName="rounded-[1rem]"
+                                onImageClick={setSelectedImage}
                                 images={[
                                     { path: "/portfolio_files/Banana/Banan Rancia +1 Millon.png", alt: "Canal con 1 Millón", title: "Canal de Damian con +1 millón de suscriptores" },
                                     { path: "/portfolio_files/Banana/Charla TEDx Banana Rancia.png", alt: "Damian TEDx", title: "Damian - TEDx" },
