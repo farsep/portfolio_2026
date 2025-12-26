@@ -61,12 +61,19 @@ export default function CVPage() {
                             </p>
                         </LiquidCard>
                     </div>
-                    <div className="h-full">
-                        <PdfViewer
-                            src="/portfolio_files/school/Acta%20primer%20Puesto%20-%20Arnie%20Farid%20Espinoza%20Pachas.pdf"
-                            title="Acta Primer Puesto"
-                            className="h-full aspect-auto"
-                        />
+                    <div className="h-full relative group cursor-pointer" onClick={() => setSelectedPdf("/portfolio_files/school/Acta%20primer%20Puesto%20-%20Arnie%20Farid%20Espinoza%20Pachas.pdf")}>
+                        <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg shadow-yellow-500/10 h-full group/image">
+                            <img
+                                src="/portfolio_files/school/Acta de Mejor Estudiante de la Graduacion Secundaria - Mejores Calificaciones - Arnie Farid Espinoza Pachas_page-0001.jpg"
+                                alt="Acta Primer Puesto"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                    Click para abrir
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -90,12 +97,19 @@ export default function CVPage() {
                 viewport={{ once: true }}
                 className="grid md:grid-cols-2 gap-12"
             >
-                <div className="h-full order-2 md:order-1">
-                    <PdfViewer
-                        src="/portfolio_files/Arnie Farid Espinoza Pachas - Programa Oracle One.pdf"
-                        title="Certificado Oracle One"
-                        className="h-full aspect-auto"
-                    />
+                <div className="h-full order-2 md:order-1 relative group cursor-pointer" onClick={() => setSelectedPdf("/portfolio_files/Arnie Farid Espinoza Pachas - Programa Oracle One.pdf")}>
+                    <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg shadow-orange-500/10 h-full group/image">
+                        <img
+                            src="/portfolio_files/Arnie Farid Espinoza Pachas - Programa Oracle One_page-0001.jpg"
+                            alt="Certificado Oracle One"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                Click para abrir
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 <div className="space-y-6 order-1 md:order-2">
                     <h2 className="text-3xl font-bold text-orange-400">Oracle One Next Education</h2>
@@ -148,12 +162,19 @@ export default function CVPage() {
                     {/* Right Column: PDF & Program (Stacked) */}
                     <div className="flex flex-col gap-30">
                         {/* Certificate */}
-                        <div className="w-full">
-                            <PdfViewer
-                                src="/portfolio_files/Digital House/Mercado Libre - Globant Certified Professional Developer Arnie Farid Espinoza Pachas.pdf"
-                                title="Certificado Digital House"
-                                className="w-full aspect-[4/3]"
-                            />
+                        <div className="w-full relative group cursor-pointer" onClick={() => setSelectedPdf("/portfolio_files/Digital House/Mercado Libre - Globant Certified Professional Developer Arnie Farid Espinoza Pachas.pdf")}>
+                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg shadow-yellow-300/10 group/image">
+                                <img
+                                    src="/portfolio_files/Digital House/Mercado Libre - Globant Certified Professional Developer Arnie Farid Espinoza Pachas_page-0001.jpg"
+                                    alt="Certificado Digital House"
+                                    className="w-full h-auto object-contain"
+                                />
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                    <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                        Click para abrir
+                                    </span>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Program Image - Full Ratio */}
@@ -301,12 +322,20 @@ export default function CVPage() {
                             <p className="text-sm font-semibold text-emerald-200/60 uppercase tracking-widest">Marketing Internship • Remoto</p>
                         </div>
 
-                        <div className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group">
+                        <div
+                            className="rounded-2xl overflow-hidden border border-white/10 aspect-video relative group/image cursor-pointer shadow-lg shadow-emerald-500/10"
+                            onClick={() => setSelectedPdf("/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas.pdf")}
+                        >
                             <img
                                 src="/portfolio_files/Copia de GCM Arnie Farid Espinoza Pachas_page-0001.jpg"
                                 alt="Global Commerce Media Internship"
-                                className="w-full h-full object-cover top-0"
+                                className="w-full h-full object-cover object-top"
                             />
+                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                    Click para abrir
+                                </span>
+                            </div>
                         </div>
 
                         <div className="text-gray-300 leading-relaxed space-y-4 flex-1">
@@ -330,12 +359,19 @@ export default function CVPage() {
                             {/* PDF Recommendation (Left) */}
                             <div className="space-y-2 order-2 lg:order-1">
                                 <span className="text-xs font-bold text-orange-400/80 uppercase tracking-widest block text-center lg:text-left">Carta de Recomendación</span>
-                                <div className="h-64 w-full">
-                                    <PdfViewer
-                                        src="/portfolio_files/Banana/Carta_de_Recomendacion_Dami_Ruiz.pdf"
-                                        title="Carta de Recomendación"
-                                        className="w-full h-full aspect-auto rounded-xl border border-white/10 hover:border-orange-500/50 transition-colors"
-                                    />
+                                <div className="h-auto w-full relative group cursor-pointer" onClick={() => setSelectedPdf("/portfolio_files/Banana/Carta_de_Recomendacion_Dami_Ruiz.pdf")}>
+                                    <div className="relative rounded-xl overflow-hidden border border-white/10 hover:border-orange-500/50 transition-colors group/image">
+                                        <img
+                                            src="/portfolio_files/Banana/Carta_de_Recomendacion_Dami_Ruiz_page-0001.jpg"
+                                            alt="Carta de Recomendación"
+                                            className="w-full h-auto object-contain"
+                                        />
+                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                            <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                                Click para abrir
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -506,12 +542,17 @@ export default function CVPage() {
 
                             {/* Flexible height container for Image (70% Height - Self-Fitting) */}
                             <div className="w-full relative bg-black/20 border-t border-white/10" style={{ minHeight: '70%' }}>
-                                <div className="absolute inset-4 rounded-xl overflow-hidden shadow-sm border border-white/5 bg-black/40 flex items-center justify-center">
+                                <div className="absolute inset-4 rounded-xl overflow-hidden shadow-sm border border-white/5 bg-black/40 flex items-center justify-center group/image">
                                     <img
                                         src="/portfolio_files/Extras/IMAGE - АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.jpg"
                                         alt="Certificado Ruso"
                                         className="w-full h-full object-contain"
                                     />
+                                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                        <span className="px-4 py-2 bg-white/10 border border-white/20 rounded-full text-white text-sm font-bold backdrop-blur-md shadow-lg transform group-hover/image:scale-105 transition-transform duration-300">
+                                            Click para abrir
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </LiquidCard>
