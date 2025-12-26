@@ -265,6 +265,7 @@ export default function CVPage() {
                                 className="rounded-[2.5rem]"
                                 cardClassName="rounded-[2.5rem]"
                                 imageClassName="rounded-[1.5rem]"
+                                onImageClick={setSelectedImage}
                                 images={[
                                     { path: "/portfolio_files/mindForgeX/IMG_20231027_143757.jpg", alt: "MindForgeX Development", title: "Leandro, Leonardo y yo - Equipo Inicial" },
                                     { path: "/portfolio_files/mindForgeX/IMG_20231027_130730.jpg", alt: "MindForgeX Team Meeting", title: "Junto a Raúl Alcántara, compatriota del MIT y ganador de la IMO" },
@@ -404,6 +405,7 @@ export default function CVPage() {
                                 className="rounded-[2rem] bg-black/20"
                                 cardClassName="rounded-[1.5rem]"
                                 imageClassName="rounded-[1rem]"
+                                onImageClick={setSelectedImage}
                                 images={[
                                     { path: "/portfolio_files/Banana/Banan Rancia +1 Millon.png", alt: "Canal con 1 Millón", title: "Canal de Damian con +1 millón de suscriptores" },
                                     { path: "/portfolio_files/Banana/Charla TEDx Banana Rancia.png", alt: "Damian TEDx", title: "Damian - TEDx" },
