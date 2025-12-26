@@ -25,7 +25,7 @@ export default function ImageCarousel({ images, cardClassName, imageClassName, c
                         onClick={() => onImageClick?.(image.path)}
                     >
                         <div className={cn(
-                            "flex flex-col gap-3 bg-white/5 rounded-2xl border border-white/10 p-[3%] shadow-lg hover:bg-white/10 transition-colors cursor-pointer",
+                            "flex flex-col gap-3 rounded-2xl p-[3%] transition-colors cursor-pointer",
                             cardClassName
                         )}>
                             <div className={cn("relative flex-1 overflow-hidden rounded-xl bg-black/20 aspect-video group/image", imageClassName)}>
@@ -41,7 +41,7 @@ export default function ImageCarousel({ images, cardClassName, imageClassName, c
                             </div>
                             {/* Caption / Title */}
                             {image.title && (
-                                <h3 className="text-sm font-medium text-gray-300 text-center px-2 w-full mx-auto">{image.title}</h3>
+                                <h3 className="text-sm font-medium text-gray-200 text-center px-2 w-full mx-auto">{image.title}</h3>
                             )}
                         </div>
                     </motion.div>
