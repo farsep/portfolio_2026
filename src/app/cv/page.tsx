@@ -12,6 +12,7 @@ import ImageCarousel from "@/components/ImageCarousel";
 
 export default function CVPage() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
     return (
         <div className="min-h-screen pt-24 pb-20 px-6 max-w-7xl mx-auto space-y-24">
@@ -487,7 +488,10 @@ export default function CVPage() {
                     <div className="md:col-span-4 flex flex-col gap-8 h-full">
 
                         {/* Russian (Top - Wider & Taller) */}
-                        <LiquidCard className="p-0 border-red-500/20 shadow-red-500/5 hover:border-red-500/40 rounded-[2rem] flex flex-col overflow-hidden bg-white/5 flex-1">
+                        <LiquidCard
+                            className="p-0 border-red-500/20 shadow-red-500/5 hover:border-red-500/40 rounded-[2rem] flex flex-col overflow-hidden bg-white/5 flex-1 cursor-pointer group"
+                            onClick={() => setSelectedPdf("/portfolio_files/Extras/АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.pdf")}
+                        >
                             <div className="p-6 pb-2 flex items-center justify-between text-red-400">
                                 <div className="flex items-center gap-3">
                                     <Globe className="w-6 h-6" />
@@ -500,26 +504,14 @@ export default function CVPage() {
                                 <h3 className="text-xl font-bold text-red-100">Crash Course in Russian</h3>
                             </div>
 
-                            {/* Flexible height container for PDF with padding - Forced Full Height */}
-                            <div className="flex-1 w-full relative bg-black/20 border-t border-white/10 min-h-[500px]">
-                                <div className="absolute inset-4 rounded-xl overflow-hidden shadow-sm border border-white/5 bg-black/40">
-                                    <object
-                                        data="/portfolio_files/Extras/АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.pdf#toolbar=0&navpanes=0&view=FitH"
-                                        type="application/pdf"
-                                        className="w-full h-full"
-                                    >
-                                        <div className="flex flex-col items-center justify-center h-full p-6 text-center text-gray-400 bg-white/5">
-                                            <p className="mb-2 text-sm">Unable to display PDF.</p>
-                                            <a
-                                                href="/portfolio_files/Extras/АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.pdf"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-300 text-xs rounded-full font-bold transition-colors border border-red-500/20"
-                                            >
-                                                Download PDF
-                                            </a>
-                                        </div>
-                                    </object>
+                            {/* Flexible height container for Image (70% Height - Self-Fitting) */}
+                            <div className="w-full relative bg-black/20 border-t border-white/10" style={{ minHeight: '70%' }}>
+                                <div className="absolute inset-4 rounded-xl overflow-hidden shadow-sm border border-white/5 bg-black/40 flex items-center justify-center">
+                                    <img
+                                        src="/portfolio_files/Extras/IMAGE - АРНИ ФАРИД ЭСПИНОЗА ПАЧАС.jpg"
+                                        alt="Certificado Ruso"
+                                        className="w-full h-full object-contain"
+                                    />
                                 </div>
                             </div>
                         </LiquidCard>
@@ -583,6 +575,49 @@ export default function CVPage() {
                             // Prevent closing when clicking the image itself
                             onClick={(e) => e.stopPropagation()}
                         />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Full Screen PDF Modal */}
+            <AnimatePresence>
+                {selectedPdf && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedPdf(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm cursor-zoom-out"
+                    >
+                        <motion.button
+                            onClick={() => setSelectedPdf(null)}
+                            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors z-50"
+                        >
+                            <X className="w-8 h-8" />
+                        </motion.button>
+
+                        <div
+                            className="w-full h-full max-w-5xl max-h-[90vh] bg-black rounded-lg overflow-hidden shadow-2xl border border-white/10 relative"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <object
+                                data={selectedPdf}
+                                type="application/pdf"
+                                className="w-full h-full"
+                            >
+                                <div className="flex flex-col items-center justify-center h-full text-gray-400">
+                                    <p>Unable to display PDF directly.</p>
+                                    <a
+                                        href={selectedPdf}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </object>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
