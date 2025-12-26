@@ -73,7 +73,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">Technical Arsenal</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">Arsenal Tecnológico</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {skills.map((skillGroup, index) => (
               <LiquidCard key={index} className="h-full">
