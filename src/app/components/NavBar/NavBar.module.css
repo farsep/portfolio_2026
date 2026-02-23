@@ -73,7 +73,7 @@
 
     .navItemContent:hover .itemText {
         transform: scale(1.1);
-        text-shadow: 0 0 20px #2dd4bf, 0 0 60px #a855f7, 0 0 10px white;
+        text-shadow: 0 0 10px rgba(192, 132, 252, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
     /* Aura Effect */
@@ -106,33 +106,63 @@
         opacity: 1;
     }
 
-    /* Sparkles */
-    .sparkleLeft,
-    .sparkleRight {
+    /* Meteor Shower Effect */
+    .meteorContainer {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        inset: 0;
+        overflow: hidden;
         opacity: 0;
         transition: opacity 0.3s ease;
-        z-index: 20;
-        color: #a5f3fc;
-        /* cyan-200 */
+        pointer-events: none;
+        z-index: 1;
     }
 
-    .sparkleLeft {
-        left: 0.5rem;
-    }
-
-    .sparkleRight {
-        right: 0.5rem;
-        transition-delay: 75ms;
-    }
-
-    .navItemContent:hover .sparkleLeft,
-    .navItemContent:hover .sparkleRight {
+    .navItemContent:hover .meteorContainer {
         opacity: 1;
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
+
+    .meteorStreak {
+        position: absolute;
+        width: 1.5px;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, #60a5fa, #c084fc, #f472b6, transparent);
+        border-radius: 9999px;
+        filter: blur(0.5px);
+        transform: rotate(25deg);
+        box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+    }
+
+    /* Aura Effect */
+    .auraEffect {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 0;
+        /* Use the cosmic palette for aura */
+        --color-1: #3b82f6;
+        --color-2: #8b5cf6;
+        --color-3: #ec4899;
+        --color-4: transparent;
+        --aura-size: 200%;
+        --aura-speed: 6s;
+
+        animation: aura var(--aura-speed) linear infinite;
+        background-size: var(--aura-size) var(--aura-size);
+        background-image:
+            radial-gradient(transparent 0, transparent 20%),
+            radial-gradient(at 62% 9%, var(--color-1) 0px, transparent 50%),
+            radial-gradient(at 69% 60%, var(--color-2) 0px, transparent 50%),
+            radial-gradient(at 24% 89%, var(--color-3) 0px, transparent 50%),
+            radial-gradient(at 51% 77%, var(--color-4) 0px, transparent 50%),
+            radial-gradient(at 78% 92%, var(--color-1) 0px, transparent 50%);
+    }
+
+    .navItemContent:hover .auraEffect {
+        opacity: 0.7;
+    }
+
+    /* Removed Sparkles */
 
     /* Border Glow */
     .borderGlow {
@@ -146,7 +176,7 @@
     }
 
     .navItemContent:hover .borderGlow {
-        border-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(192, 132, 252, 0.5);
     }
 }
 

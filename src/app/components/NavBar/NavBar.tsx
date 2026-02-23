@@ -2,14 +2,48 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./NavBar.module.css";
 
 const navItems = [
     { name: "Home", path: "/" },
     { name: "CV", path: "/cv" },
 ];
+
+function MeteorShower({ active }: { active: boolean }) {
+    const meteorCount = 12;
+
+    return (
+        <AnimatePresence>
+            {active && (
+                <div className={styles.meteorContainer}>
+                    {[...Array(meteorCount)].map((_, i) => {
+                        const duration = 0.8 + Math.random() * 1.2;
+                        const delay = Math.random() * 2;
+                        const left = Math.random() * 120 - 10; // Extra width for diagonal
+
+                        return (
+                            <motion.div
+                                key={i}
+                                className={styles.meteorStreak}
+                                style={{ left: `${left}%` }}
+                                initial={{ y: "-20%", x: "20%", opacity: 0 }}
+                                animate={{ y: "120%", x: "-20%", opacity: [0, 1, 0] }}
+                                exit={{ opacity: 0 }}
+                                transition={{
+                                    duration,
+                                    repeat: Infinity,
+                                    delay,
+                                    ease: "linear"
+                                }}
+                            />
+                        );
+                    })}
+                </div>
+            )}
+        </AnimatePresence>
+    );
+}
 
 export default function NavBar() {
     const pathname = usePathname();
@@ -27,6 +61,9 @@ export default function NavBar() {
                         <Link key={item.path} href={item.path} className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}>
                             <div className={styles.navItemContent}>
 
+                                {/* Meteor Shower Background */}
+                                <MeteorShower active={true} />
+
                                 {/* Content */}
                                 <span className={styles.itemText}>{item.name}</span>
 
@@ -41,14 +78,6 @@ export default function NavBar() {
 
                                 {/* Aura Effect Background (On Hover - Handled by CSS Module media query) */}
                                 <div className={styles.auraEffect} />
-
-                                {/* Sparkles at the sides */}
-                                <div className={styles.sparkleLeft}>
-                                    <Sparkles size={16} strokeWidth={1.5} />
-                                </div>
-                                <div className={styles.sparkleRight}>
-                                    <Sparkles size={16} strokeWidth={1.5} />
-                                </div>
 
                                 {/* Border Glow for Hover */}
                                 <div className={styles.borderGlow} />
