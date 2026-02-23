@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./NavBar.module.css";
 
@@ -11,6 +12,11 @@ const navItems = [
 ];
 
 function MeteorShower({ active }: { active: boolean }) {
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) return null;
+
     const meteorCount = 12;
 
     return (
