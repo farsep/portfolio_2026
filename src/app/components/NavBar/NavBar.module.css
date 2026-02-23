@@ -1,0 +1,163 @@
+.navContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 50;
+    pointer-events: none;
+    /* Let clicks pass through the container areas */
+}
+
+.navGlass {
+    display: flex;
+    gap: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: auto;
+    /* Re-enable pointer events on the nav itself */
+}
+
+.navItem {
+    position: relative;
+    display: block;
+}
+
+.navItemContent {
+    position: relative;
+    padding: 0.75rem 3rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: #9ca3af;
+    /* gray-400 */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navItemActive .navItemContent {
+    color: white;
+}
+
+.itemText {
+    position: relative;
+    z-index: 10;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.activeIndicator {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 25%;
+    right: 25%;
+    height: 2px;
+    background-color: white;
+    box-shadow: 0 0 10px white;
+}
+
+/* Hover Effects - Only on desktop */
+@media (hover: hover) {
+    .navItemContent:hover {
+        color: white;
+    }
+
+    .navItemContent:hover .itemText {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px #2dd4bf, 0 0 60px #a855f7, 0 0 10px white;
+    }
+
+    /* Aura Effect */
+    .auraEffect {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 0;
+        /* Use the aura animation from globals */
+        --color-1: #2dd4bf;
+        --color-2: #a855f7;
+        --color-3: #10b981;
+        --color-4: transparent;
+        --aura-size: 200%;
+        --aura-speed: 10s;
+
+        animation: aura var(--aura-speed) linear infinite;
+        background-size: var(--aura-size) var(--aura-size);
+        background-image:
+            radial-gradient(transparent 0, transparent 20%),
+            radial-gradient(at 62% 9%, var(--color-1) 0px, transparent 50%),
+            radial-gradient(at 69% 60%, var(--color-2) 0px, transparent 50%),
+            radial-gradient(at 24% 89%, var(--color-3) 0px, transparent 50%),
+            radial-gradient(at 51% 77%, var(--color-4) 0px, transparent 50%),
+            radial-gradient(at 78% 92%, var(--color-1) 0px, transparent 50%);
+    }
+
+    .navItemContent:hover .auraEffect {
+        opacity: 1;
+    }
+
+    /* Sparkles */
+    .sparkleLeft,
+    .sparkleRight {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 20;
+        color: #a5f3fc;
+        /* cyan-200 */
+    }
+
+    .sparkleLeft {
+        left: 0.5rem;
+    }
+
+    .sparkleRight {
+        right: 0.5rem;
+        transition-delay: 75ms;
+    }
+
+    .navItemContent:hover .sparkleLeft,
+    .navItemContent:hover .sparkleRight {
+        opacity: 1;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Border Glow */
+    .borderGlow {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: 1px solid transparent;
+        transition: border-color 0.3s ease;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+    .navItemContent:hover .borderGlow {
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+}

@@ -1,0 +1,97 @@
+.carouselContainer {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.carouselTrack {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    cursor: grab;
+}
+
+.carouselTrack:active {
+    cursor: grabbing;
+}
+
+.carouselItem {
+    min-width: 40%;
+    width: 40%;
+    scroll-snap-align: center;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .carouselItem {
+        min-width: 80%;
+        width: 80%;
+    }
+}
+
+.card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .carouselItem:hover {
+        transform: scale(1.02);
+    }
+
+    .carouselItem:hover .image {
+        transform: scale(1.05);
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+@media (hover: hover) {
+    .carouselItem:hover .overlay {
+        opacity: 1;
+    }
+}
+
+/* Mobile always show overlay title slightly? Or keep hidden until tap? 
+   Let's keep it visible on mobile or just simple. 
+   The user asked for performance, so simple is better. 
+*/
+@media (max-width: 768px) {
+    .overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 50%);
+    }
+}
+
+.title {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
