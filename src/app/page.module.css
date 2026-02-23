@@ -193,7 +193,10 @@
 }
 
 .skillTag {
-  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.85rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 9999px;
   font-size: 15px;
@@ -202,7 +205,20 @@
   /* gray-300 */
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: default;
-  transition: background-color 0.2s;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skillIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+  filter: brightness(0.9) grayscale(0.2);
+  transition: all 0.2s ease;
+}
+
+.skillTag:hover .skillIcon {
+  filter: brightness(1.1) grayscale(0);
+  transform: scale(1.15);
 }
 
 @media (hover: hover) {
